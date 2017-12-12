@@ -6,10 +6,14 @@ import store from '../store'
 import AppBar from './AppBar'
 import CampusList from './CampusList'
 import StudentList from './StudentList'
+import NewStudentEntry from './NewStudentEntry'
+import NewCampusEntry from './NewCampusEntry'
+import Student from './Student'
+import Campus from './Campus';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import { blueGrey100, blueGrey600 } from 'material-ui/styles/colors';
+import { blueGrey100, blueGrey600 } from 'material-ui/styles/colors'
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -35,10 +39,11 @@ export default class Main extends Component {
             <AppBar />
             <main>
               <Switch>
-                <Route path='/new-student' component={StudentList}/>
-                <Route path='/students/:studentId' component={StudentList}/>
+                <Route path='/new-student' component={NewStudentEntry}/>
+                <Route path='/students/:studentId' component={Student}/>
                 <Route path='/students' component={StudentList}/>
-                <Route path='/campuses/:campusId' component={CampusList}/>
+                <Route path='/new-campus' component={NewCampusEntry}/>
+                <Route path='/campuses/:campusId' component={Campus} />
                 <Route path='/campuses' component={CampusList}/>
                 <Route component={CampusList}/>
               </Switch>

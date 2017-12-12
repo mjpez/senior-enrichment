@@ -1,12 +1,13 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom'
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import People from 'material-ui/svg-icons/social/people';
+import School from 'material-ui/svg-icons/social/school';
+import Home from 'material-ui/svg-icons/action/home';
 import FlatButton from 'material-ui/FlatButton';
-
-function handleClick() {
-  alert('onClick triggered on the title component');
-}
+import { blueGrey600 } from 'material-ui/styles/colors';
 
 const styles = {
   title: {
@@ -20,11 +21,23 @@ const styles = {
  */
 const AppBarExampleIconButton = () => (
   <AppBar
-    title={<span style={styles.title}>MH Academy</span>}
+    title={<span style={styles.title}>Margaret Hamilton Interplanetary Academy of JavaScript</span>}
+    iconElementLeft={
+      <div>
+        <NavLink to='/campuses'>
+          <IconButton><Home color="blueGrey100" /></IconButton>
+        </NavLink>
+      </div>
+    }
     iconElementRight={
       <div>
-        <FlatButton label="Home" />
-        <FlatButton label="Students" />
+        <NavLink to='/campuses'>
+          <IconButton><School color="blueGrey100" /></IconButton>
+        </NavLink>
+        <NavLink to='/students'>
+          <IconButton><People color="blueGrey100" /></IconButton>
+        </NavLink>
+
       </div>
     }
   />
